@@ -38,4 +38,6 @@ This script will produce two datasets:
                            average of each variable for each activity
                            and each subject. 
 
+It will also add a copy of groupedgalaxyactivity_df to your working directory as "dataset.txt"
+
 Full descriptions of the data set can be found in codeBook.md

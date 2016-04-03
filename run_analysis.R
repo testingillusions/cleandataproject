@@ -181,4 +181,5 @@ groupedgalaxyactivity_df <- fullgalaxyactivity_df %.%
 ## Remove the "dataset" column, as it is now not applicable in this dataset. 
 groupedgalaxyactivity_df <- select(groupedgalaxyactivity_df,-dataset)
 
-
+## Output Dataset
+write.table(groupedgalaxyactivity_df, file="dataset.txt", row.names = FALSE)
