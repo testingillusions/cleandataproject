@@ -27,177 +27,184 @@ This script will produce two datasets:
                            
 ##fullgalaxyactivity_df
 
-This is a dataframe with the following four indetification columns and sixty-six feature observation. 
+This is a dataframe has a total of 70 columns with the following 4 indetification columns and 66 feature observation. 
 
-The four identification columns are:
+The 4 identification columns are:
 
 * subjectid - Subject Identification Code
-        + numeric
-        + integer between 1 and 30
+    + numeric
+    + integer between 1 and 30
 * dataset - Indication of origination from the original Datasets
-        + character
-        + values:
-                ++ test - Originated from the Test Dataset
-                ++ train - Originated from the Training Dataset
+    + character
+    + values:
+        - test - Originated from the Test Dataset
+        - train - Originated from the Training Dataset
 * activityid - Activity Identification Code
-        + numeric
-        + integer between 1 and 6
-        + values:
-                ++ 1 WALKING
-                ++ 2 WALKING_UPSTAIRS
-                ++ 3 WALKING_DOWNSTAIRS
-                ++ 4 SITTING
-                ++ 5 STANDING
+    + numeric
+    + integer between 1 and 6
+    + values:
+        - 1 WALKING
+        - 2 WALKING_UPSTAIRS
+        - 3 WALKING_DOWNSTAIRS
+        - 4 SITTING
+        - 5 STANDING
+        - 6 LAYING 
 * activityname - Descriptive Activity Name
-        + character
-        + values:
-                ++ 1 WALKING
-                ++ 2 WALKING_UPSTAIRS
-                ++ 3 WALKING_DOWNSTAIRS
-                ++ 4 SITTING
-                ++ 5 STANDING
+    + character
+    + values:
+        - WALKING
+        - WALKING_UPSTAIRS
+        - WALKING_DOWNSTAIRS
+        - SITTING
+        - STANDING
+        - LAYING
 
 
-The sixty-six feature columns contain the mean and standard deviation columns of the original data set for all the unique features. 
+The 66 feature columns contain the mean and standard deviation columns of the original data set for all the unique features. 
 
-The features originate from the original data sets columns for mean, denoted as mean() and standard deviation, denoted as std(). All of the data comes from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+The features originate from the original data sets columns for mean, denoted as mean() and standard deviation, denoted as std(). As per the originating dataset: 
 
-Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+>[All of the data comes] from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
-Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
+>Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
 
-These signals were used to estimate variables of the feature vector for each pattern:  
+>Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
+
+>These signals were used to estimate variables of the feature vector for each pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
+>Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
 
-gravityMean
-tBodyAccMean
-tBodyAccJerkMean
-tBodyGyroMean
-tBodyGyroJerkMean
+>gravityMean  
+>tBodyAccMean  
+>tBodyAccJerkMean  
+>tBodyGyroMean  
+>tBodyGyroJerkMean  
 
 The columns available in this data set are as follows. All are numeric, containing exactly one entry per row. 
 
-*tbodyaccmeanx
-*tbodyaccmeany           
-*tbodyaccmeanz
+* tbodyaccmeanx
+* tbodyaccmeany
+* tbodyaccmeanz  
 
-*tbodyaccstdx
-*tbodyaccstdy            
-*tbodyaccstdz 
+* tbodyaccstdx
+* tbodyaccstdy
+* tbodyaccstdz
 
-*tgravityaccmeanx 
-*tgravityaccmeany        
-*tgravityaccmeanz
+* tgravityaccmeanx 
+* tgravityaccmeany        
+* tgravityaccmeanz
 
-*tgravityaccstdx
-*tgravityaccstdy         
-*tgravityaccstdz
+* tgravityaccstdx
+* tgravityaccstdy         
+* tgravityaccstdz
 
-*tbodyaccjerkmeanx
-*tbodyaccjerkmeany       
-*tbodyaccjerkmeanz
+* tbodyaccjerkmeanx
+* tbodyaccjerkmeany       
+* tbodyaccjerkmeanz
 
-*tbodyaccjerkstdx
-*tbodyaccjerkstdy        
-*tbodyaccjerkstdz
+* tbodyaccjerkstdx
+* tbodyaccjerkstdy        
+* tbodyaccjerkstdz
 
-*tbodygyromeanx
-*tbodygyromeany          
-*tbodygyromeanz
+* tbodygyromeanx
+* tbodygyromeany          
+* tbodygyromeanz
 
-*tbodygyrostdx
-*tbodygyrostdy           
-*tbodygyrostdz
+* tbodygyrostdx
+* tbodygyrostdy           
+* tbodygyrostdz
 
-*tbodygyrojerkmeanx
-*tbodygyrojerkmeany      
-*tbodygyrojerkmeanz 
+* tbodygyrojerkmeanx
+* tbodygyrojerkmeany      
+* tbodygyrojerkmeanz 
 
-*tbodygyrojerkstdx
-*tbodygyrojerkstdy       
-*tbodygyrojerkstdz 
+* tbodygyrojerkstdx
+* tbodygyrojerkstdy       
+* tbodygyrojerkstdz 
 
-*tbodyaccmagmean
-*tbodyaccmagstd          
+* tbodyaccmagmean
+* tbodyaccmagstd          
 
-*tgravityaccmagmean
-*tgravityaccmagstd
+* tgravityaccmagmean
+* tgravityaccmagstd
 
-*tbodyaccjerkmagmean     
-*tbodyaccjerkmagstd       
+* tbodyaccjerkmagmean     
+* tbodyaccjerkmagstd       
 
-*tbodygyromagmean         
-*tbodygyromagstd   
+* tbodygyromagmean         
+* tbodygyromagstd   
 
-*tbodygyrojerkmagmean     
-*tbodygyrojerkmagstd      
+* tbodygyrojerkmagmean     
+* tbodygyrojerkmagstd      
 
-*fbodyaccmeanx           
-*fbodyaccmeany
-*fbodyaccmeanz 
+* fbodyaccmeanx           
+* fbodyaccmeany
+* fbodyaccmeanz 
 
-*fbodyaccstdx            
-*fbodyaccstdy
-*fbodyaccstdz
+* fbodyaccstdx            
+* fbodyaccstdy
+* fbodyaccstdz
 
-*fbodyaccjerkmeanx       
-*fbodyaccjerkmeany
-*fbodyaccjerkmeanz    
+* fbodyaccjerkmeanx       
+* fbodyaccjerkmeany
+* fbodyaccjerkmeanz    
 
-*fbodyaccjerkstdx        
-*fbodyaccjerkstdy
-*fbodyaccjerkstdz
+* fbodyaccjerkstdx        
+* fbodyaccjerkstdy
+* fbodyaccjerkstdz
 
-*fbodygyromeanx          
-*fbodygyromeany
-*fbodygyromeanz 
+* fbodygyromeanx          
+* fbodygyromeany
+* fbodygyromeanz 
 
-*fbodygyrostdx           
-*fbodygyrostdy 
-*fbodygyrostdz  
+* fbodygyrostdx           
+* fbodygyrostdy 
+* fbodygyrostdz  
 
-*fbodyaccmagmean         
-*fbodyaccmagstd
-*fbodybodyaccjerkmagmean  
-*fbodybodyaccjerkmagstd  
+* fbodyaccmagmean         
+* fbodyaccmagstd
 
-*fbodybodygyromagmean
-*fbodybodygyromagstd      
+* fbodybodyaccjerkmagmean  
+* fbodybodyaccjerkmagstd  
 
-*fbodybodygyrojerkmagmean
-*fbodybodygyrojerkmagstd 
+* fbodybodygyromagmean
+* fbodybodygyromagstd      
+
+* fbodybodygyrojerkmagmean
+* fbodybodygyrojerkmagstd 
 
 ##groupedgalaxyactivity_df
 
-This is a dataframe with the following three indetification columns and sixty-six feature observation that is an average of the fullgalaxyactivity_df dataframe for each subject and each activity. 
+This is a dataframe has a total of 69 columns with the following 3 indetification columns and 66 feature observation that is an average of the fullgalaxyactivity_df dataframe for each subject and each activity. 
 
-The three identification columns are:
+The 3 identification columns are:
 
 * subjectid - Subject Identification Code
-        + numeric
-        + integer between 1 and 30
+    + numeric
+    + integer between 1 and 30
 
 * activityid - Activity Identification Code
-        + numeric
-        + integer between 1 and 6
-        + values:
-                ++ 1 WALKING
-                ++ 2 WALKING_UPSTAIRS
-                ++ 3 WALKING_DOWNSTAIRS
-                ++ 4 SITTING
-                ++ 5 STANDING
-
+    + numeric
+    + integer between 1 and 6
+    + values:
+        - 1 WALKING
+        - 2 WALKING_UPSTAIRS
+        - 3 WALKING_DOWNSTAIRS
+        - 4 SITTING
+        - 5 STANDING
+        - 6 LAYING
+        
 * activityname - Descriptive Activity Name
-        + character
-        + values:
-                ++ 1 WALKING
-                ++ 2 WALKING_UPSTAIRS
-                ++ 3 WALKING_DOWNSTAIRS
-                ++ 4 SITTING
-                ++ 5 STANDING
-
-All sixty-six feature columns are the mean of the sub groups Subject->Activity calcualted by using the summeans() function. 
+    + character
+    + values:
+        - WALKING
+        - WALKING_UPSTAIRS
+        - WALKING_DOWNSTAIRS
+        - SITTING
+        - STANDING
+        - LAYING
+        
+All 66 feature columns are the mean of the sub groups Subject->Activity calcualted by using the summeans() function. 
 
 All columns has the same defination as the originating fullgalaxyactivities_df dataframe from above. 

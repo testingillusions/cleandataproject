@@ -22,11 +22,11 @@
 
 ## This script will produce two datasets:
 ##
-## fulldescriptiveactivity_df - Contains the means of all features for each
+## fullgalaxyactivity_df - Contains the means of all features for each
 ##                              observation in the original dataset 
 ##
-## groupeddescriptiveactivity_df - Contains a summarized version of the 
-##                                 fulldescriptiveactivity_df dataset with the 
+## groupedgalaxyactivity_df - Contains a summarized version of the 
+##                                 fullgalaxyactivity_df dataset with the 
 ##                                 average of each variable for each activity
 ##                                 and each subject. 
 
@@ -135,21 +135,21 @@ rm(activityid_col_idx)
 ## 3) Uses descriptive activity names to name the activities in the data set
 
 #Add Descriptive column for activities 
-fulldescriptiveactivity_df <- inner_join(reducedtotalset_df, 
+fullgalaxyactivity_df <- inner_join(reducedtotalset_df, 
                                activitylabels_df)
 
 #Move columns around to make the dataset more readable
-activityname_col_idx <- grep("activityname", names(fulldescriptiveactivity_df))
-fulldescriptiveactivity_df <- fulldescriptiveactivity_df[, c(activityname_col_idx, (1:ncol(fulldescriptiveactivity_df))[-activityname_col_idx])]
+activityname_col_idx <- grep("activityname", names(fullgalaxyactivity_df))
+fullgalaxyactivity_df <- fullgalaxyactivity_df[, c(activityname_col_idx, (1:ncol(fullgalaxyactivity_df))[-activityname_col_idx])]
 
-activityid_col_idx <- grep("activityid", names(fulldescriptiveactivity_df))
-fulldescriptiveactivity_df <- fulldescriptiveactivity_df[, c(activityid_col_idx, (1:ncol(fulldescriptiveactivity_df))[-activityid_col_idx])]
+activityid_col_idx <- grep("activityid", names(fullgalaxyactivity_df))
+fullgalaxyactivity_df <- fullgalaxyactivity_df[, c(activityid_col_idx, (1:ncol(fullgalaxyactivity_df))[-activityid_col_idx])]
 
-dataset_col_idx <- grep("dataset", names(fulldescriptiveactivity_df))
-fulldescriptiveactivity_df <- fulldescriptiveactivity_df[, c(dataset_col_idx, (1:ncol(fulldescriptiveactivity_df))[-dataset_col_idx])]
+dataset_col_idx <- grep("dataset", names(fullgalaxyactivity_df))
+fullgalaxyactivity_df <- fullgalaxyactivity_df[, c(dataset_col_idx, (1:ncol(fullgalaxyactivity_df))[-dataset_col_idx])]
 
-subjectid_col_idx <- grep("subjectid", names(fulldescriptiveactivity_df))
-fulldescriptiveactivity_df <- fulldescriptiveactivity_df[, c(subjectid_col_idx, (1:ncol(fulldescriptiveactivity_df))[-subjectid_col_idx])]
+subjectid_col_idx <- grep("subjectid", names(fullgalaxyactivity_df))
+fullgalaxyactivity_df <- fullgalaxyactivity_df[, c(subjectid_col_idx, (1:ncol(fullgalaxyactivity_df))[-subjectid_col_idx])]
 
 ## Remove dataframes we don't need anymore
 rm(activitylabels_df)
@@ -162,11 +162,11 @@ rm(activityname_col_idx)
 ## 4) Appropriately labels the data set with descriptive variable names.
 
 ## remove all "()"
-colnames(fulldescriptiveactivity_df) <- sub("\\(\\)","",names(fulldescriptiveactivity_df))
+colnames(fullgalaxyactivity_df) <- sub("\\(\\)","",names(fullgalaxyactivity_df))
 ## remove all "-"
-colnames(fulldescriptiveactivity_df) <- gsub("-","",names(fulldescriptiveactivity_df))
+colnames(fullgalaxyactivity_df) <- gsub("-","",names(fullgalaxyactivity_df))
 ##lowercase all
-colnames(fulldescriptiveactivity_df) <- tolower(names(fulldescriptiveactivity_df))
+colnames(fullgalaxyactivity_df) <- tolower(names(fullgalaxyactivity_df))
 
 ## 5) From the data set in step 4, creates a second, independent tidy data set  
 ##    with the average of each variable for each activity and each subject.
@@ -174,11 +174,11 @@ colnames(fulldescriptiveactivity_df) <- tolower(names(fulldescriptiveactivity_df
 ## Group the data by SubjectID and then ActivityName, then run the mean() 
 ## function on all the columns
 
-groupeddescriptiveactivity_df <- fulldescriptiveactivity_df %.%
+groupedgalaxyactivity_df <- fullgalaxyactivity_df %.%
         group_by(subjectid, activityname) %.%
         summarise_each(funs(mean))
 
 ## Remove the "dataset" column, as it is now not applicable in this dataset. 
-groupeddescriptiveactivity_df <- select(groupeddescriptiveactivity_df,-dataset)
+groupedgalaxyactivity_df <- select(groupedgalaxyactivity_df,-dataset)
 
 
