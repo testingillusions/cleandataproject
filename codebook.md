@@ -20,14 +20,14 @@ This script will produce two datasets:
                         observation in the original dataset 
 
 **groupedgalaxyactivity_df** - Contains a summarized version of the 
-                           fulldescriptiveactivity_df dataset with the 
+                           fullgalaxyactivity_df dataset with the 
                            average of each variable for each activity
                            and each subject. 
                            
                            
 ##fullgalaxyactivity_df
 
-This is a dataframe has a total of 70 columns with the following 4 indetification columns and 66 feature observation. 
+This is a data frame has a total of 70 columns with the following 4 identification columns and 66 feature observation. 
 
 The 4 identification columns are:
 
@@ -176,7 +176,7 @@ The columns available in this data set are as follows. All are numeric, containi
 
 ##groupedgalaxyactivity_df
 
-This is a dataframe has a total of 69 columns with the following 3 indetification columns and 66 feature observation that is an average of the fullgalaxyactivity_df dataframe for each subject and each activity. 
+This is a data frame has a total of 69 columns with the following 3 identification columns and 66 feature observation that is an average of the fullgalaxyactivity_df data frame for each subject and each activity. 
 
 The 3 identification columns are:
 
@@ -205,6 +205,6 @@ The 3 identification columns are:
         - STANDING
         - LAYING
         
-All 66 feature columns are the mean of the sub groups Subject->Activity calcualted by using the summeans() function. 
+All 66 feature columns are the mean of the sub groups Subject->Activity calculated by using the summeans() function. 
 
-All columns has the same defination as the originating fullgalaxyactivities_df dataframe from above. 
+All columns have the same definition as the originating fullgalaxyactivities_df data frame from above. 

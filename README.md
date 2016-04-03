@@ -38,4 +38,4 @@ This script will produce two datasets:
                            average of each variable for each activity
                            and each subject. 
 
-full descriptions of the data set can be found in codeBook.md
+Full descriptions of the data set can be found in codeBook.md
